@@ -191,7 +191,7 @@ class _UserSignUpState extends State<UserSignUp> {
                               Expanded(
                                 child: ElevatedButton(
                                   onPressed: controllers.onStepContinue,
-                                  child: const Text('Complete Sign Up'),
+                                  child: const Text('Sign-Up Complete'),
                                 ),
                               ),
                           ],
