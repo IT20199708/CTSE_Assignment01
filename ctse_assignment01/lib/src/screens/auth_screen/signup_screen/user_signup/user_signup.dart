@@ -120,7 +120,7 @@ class _UserSignUpState extends State<UserSignUp> {
         await CreateUser(credential.user?.uid);
         Navigator.of(context).pop();
         Get.off(()=>InterestArea(userRole: 'user'));
-        CustomSnackBars.showSuccessSnackBar('Successfully signed up');
+        CustomSnackBars.showSuccessSnackBar('You are successfully signed up');
 
       } 
 
