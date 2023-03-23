@@ -87,7 +87,7 @@ class _OrgSignUpState extends State<OrgSignUp> {
     Future CreateUser(String? id) async {
       try{
       final docRefUser = FirebaseFirestore.instance.collection("user").doc(id);
-      final user = new UserModel(firstName:OrganizationName.text.trim(), lastName: OrganizationShortName.text.trim(), ContactNo:ContactNo.text.trim(), Email:Email.text.trim(), Address: Address.text.trim(),imgUrl: url.isNotEmpty ?url:'gs://ctse-assignment-c675f.appspot.com/common/avatar.png' );
+      final user = new UserModel(firstName:OrganizationName.text.trim(), lastName: OrganizationShortName.text.trim(), ContactNo:ContactNo.text.trim(), Email:Email.text.trim(), Address: Address.text.trim(),imgUrl: url.isNotEmpty ?url:'https://firebasestorage.googleapis.com/v0/b/edushareflutter-1358a.appspot.com/o/user%20avatar.png?alt=media&token=98bc263d-1414-4c39-8bab-1eeb8013637f' );
       final jsonUser = user.toJSON();
       await docRefUser.set(jsonUser);
       }  on FirebaseException catch (e) {

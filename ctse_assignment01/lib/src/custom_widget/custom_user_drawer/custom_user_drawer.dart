@@ -50,7 +50,7 @@ class CustomUserDrawer extends StatelessWidget {
                   shape: BoxShape.circle,
                   image: DecorationImage(
                       image: NetworkImage(
-                          userController.getUser.imgUrl ?? 'gs://ctse-assignment-c675f.appspot.com/common/avatar.png')
+                          userController.getUser.imgUrl ?? 'https://firebasestorage.googleapis.com/v0/b/edushareflutter-1358a.appspot.com/o/user%20avatar.png?alt=media&token=98bc263d-1414-4c39-8bab-1eeb8013637f')
                   )
               )
           ),

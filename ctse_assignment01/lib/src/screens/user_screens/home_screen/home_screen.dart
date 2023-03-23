@@ -155,10 +155,10 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               );
                             }else{
-                              return Center(child: Text('No Data to Display'));
+                              return Center(child: Text('No Data to Show'));
                             }
                           } else {
-                            return Center(child: Text('No Data to Display'));
+                            return Center(child: Text('No Data to Show'));
                           }
                         },
                       ),
@@ -203,10 +203,10 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               );
                             }else{
-                              return Center(child: Text('No Data to Display'));
+                              return Center(child: Text('No Data to Show'));
                             }
                           } else {
-                            return Center(child: Text('No Data to Display'));
+                            return Center(child: Text('No Data to Show'));
                           }
                         },
                       ),

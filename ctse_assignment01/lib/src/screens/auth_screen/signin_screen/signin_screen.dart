@@ -157,7 +157,7 @@ class _SignInState extends State<SignIn> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Dont have an account yet?"),
+                            Text("Don't have an account yet?"),
                             TextButton(
                                 onPressed: () => {
                                       Get.to(UserRoleSelect(),

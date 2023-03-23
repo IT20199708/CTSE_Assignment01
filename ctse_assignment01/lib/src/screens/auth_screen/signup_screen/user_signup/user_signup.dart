@@ -32,18 +32,16 @@ class _UserSignUpState extends State<UserSignUp> {
 
   final Email = TextEditingController();
   final Password = TextEditingController();
-   final ContactNo = TextEditingController();
   final ConfirmPassword = TextEditingController();
-  final OrganizationShortName = TextEditingController();
   final OrganizationName = TextEditingController();
+  final OrganizationShortName = TextEditingController();
   final Address = TextEditingController();
- 
+  final ContactNo = TextEditingController();
   String url = '';
   var IsPasswordVisible = true;
   File? _image;
 
   Future getImage() async {
-
     try {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image == null) return;
@@ -58,7 +56,6 @@ class _UserSignUpState extends State<UserSignUp> {
 
   @override
   void dispose() {
-
     super.dispose();
     Email.dispose();
     Password.dispose();
@@ -88,7 +85,6 @@ class _UserSignUpState extends State<UserSignUp> {
       }
       return '';
     }
-
     Future CreateUser(String? id) async {
       try{
         final docRefUser = FirebaseFirestore.instance.collection("user").doc(id);
@@ -99,9 +95,7 @@ class _UserSignUpState extends State<UserSignUp> {
         CustomSnackBars.showErrorSnackBar(e.message);
       }
     }
-
-    //Firebase User Sign Up
-
+//Firebase User Sign Up
     Future SignUpUser () async{
       showDialog(context: context, barrierDismissible: false, builder: (context){
         return Center(child: CircularProgressIndicator());
@@ -111,25 +105,21 @@ class _UserSignUpState extends State<UserSignUp> {
           email: Email.text.trim(),
           password: Password.text.trim(),
         );
-
-        //Upload image
-
+        //Upload
         if(_image != null){
           url = await UploadImage();
         }
         await CreateUser(credential.user?.uid);
         Navigator.of(context).pop();
         Get.off(()=>InterestArea(userRole: 'user'));
-        CustomSnackBars.showSuccessSnackBar('You are successfully signed up');
+        CustomSnackBars.showSuccessSnackBar('Successfully signed up');
 
-      } 
-
-      on FirebaseAuthException catch (e) {
+      } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
           CustomSnackBars.showErrorSnackBar('weak-password');
           Navigator.of(context).pop();
         } else if (e.code == 'email-already-in-use') {
-          CustomSnackBars.showErrorSnackBar('The account already exists for that email pleae try again.');
+          CustomSnackBars.showErrorSnackBar('The account already exists for that email.');
           Navigator.of(context).pop();
         }else{
           CustomSnackBars.showErrorSnackBar(e.message);
@@ -191,7 +181,7 @@ class _UserSignUpState extends State<UserSignUp> {
                               Expanded(
                                 child: ElevatedButton(
                                   onPressed: controllers.onStepContinue,
-                                  child: const Text('Sign-Up Complete'),
+                                  child: const Text('Complete Sign Up'),
                                 ),
                               ),
                           ],
@@ -225,7 +215,7 @@ class _UserSignUpState extends State<UserSignUp> {
 
   List<Step> getSteps() => [
     Step(
-        title: Text("SetUp Your Account"),
+        title: Text("SetUp Account"),
         isActive: currentStep >= 0,
         state: currentStep > 0 ? StepState.complete : StepState.indexed,
         content: Form(
@@ -250,9 +240,9 @@ class _UserSignUpState extends State<UserSignUp> {
                   validator: (value) {
                     if (value!.isEmpty)
                     {
-                      return "Please Enter your Email";
+                      return "Please Enter  Email";
                     }else if(!EmailValidator.validate(value)){
-                      return "Please Enter  your Valid Email";
+                      return "Please Enter Valid Email";
                     } else {
                       return null;
                     }
