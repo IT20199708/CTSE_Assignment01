@@ -225,7 +225,7 @@ class _UserSignUpState extends State<UserSignUp> {
 
   List<Step> getSteps() => [
     Step(
-        title: Text("SetUp Account"),
+        title: Text("SetUp Your Account"),
         isActive: currentStep >= 0,
         state: currentStep > 0 ? StepState.complete : StepState.indexed,
         content: Form(
@@ -250,9 +250,9 @@ class _UserSignUpState extends State<UserSignUp> {
                   validator: (value) {
                     if (value!.isEmpty)
                     {
-                      return "Please Enter  Email";
+                      return "Please Enter your Email";
                     }else if(!EmailValidator.validate(value)){
-                      return "Please Enter Valid Email";
+                      return "Please Enter  your Valid Email";
                     } else {
                       return null;
                     }
