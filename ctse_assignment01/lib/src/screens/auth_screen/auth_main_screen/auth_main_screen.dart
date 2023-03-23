@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-
 import '../../../constants/text/text.dart';
 import '../../../custom_widget/custom_outlined_btn/custom_outlined_btn.dart';
 import '../../../utils/shared_preferences/shared_preferences.dart';
@@ -46,7 +45,7 @@ class _AuthMainScreenState extends State<AuthMainScreen> {
                   SizedBox(
                     height: 49.h,
                   ),
-                  CustomHeadlineText(text: "Welcome !", textColor: tPrimaryColor),
+                  CustomHeadlineText(text: "Welcome!", textColor: tPrimaryColor),
                   SizedBox(
                     height: 56.h,
                   ),
@@ -58,11 +57,12 @@ class _AuthMainScreenState extends State<AuthMainScreen> {
                     height: 56.h,
                   ),
                   CustomButton(
-                      BtnText: 'Sign In', onPressed: () =>Get.to(()=>SignIn())),
+                      BtnText: 'Login', onPressed: () =>Get.to(()=>SignIn())),
                   SizedBox(
+                    
                     height: 30.h,
                   ),
-                  CustomOutlinedBtn(BtnText: "Sign Up", onPressed: () =>Get.to(()=>UserRoleSelect())
+                  CustomOutlinedBtn(BtnText: "Register", onPressed: () =>Get.to(()=>UserRoleSelect())
                   )
                 ],
               ),
