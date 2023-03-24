@@ -158,7 +158,7 @@ class _SignInState extends State<SignIn> {
                                 Size.fromHeight(40.h)),
                           ),
                         ),
-                        
+
                         SizedBox(height: 20.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -186,7 +186,9 @@ class _SignInState extends State<SignIn> {
       TextEditingController controller,
       VoidCallback onPressed,
       String? Function(String?) validateFunction) {
+        
     return TextFormField(
+
         obscureText: IsPasswordVisible,
         validator: validateFunction,
         keyboardType: TextInputType.text,

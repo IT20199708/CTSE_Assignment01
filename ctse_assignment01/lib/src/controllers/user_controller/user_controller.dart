@@ -19,9 +19,6 @@ class UserController extends GetxController{
        currentUser.value = UserModel();
      }
 
-
-
-
   Future<UserModel> checkUserType(String id) async {
      CollectionReference<Map<String, dynamic>> user = FirebaseFirestore.instance.collection('user');
      var userDoc = await user.doc(id).get();

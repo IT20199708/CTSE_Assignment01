@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 
-
 class OrgController extends GetxController {
   CollectionReference<Map<String, dynamic>> eduPostCollection =
       FirebaseFirestore.instance.collection('EducationalPost');
