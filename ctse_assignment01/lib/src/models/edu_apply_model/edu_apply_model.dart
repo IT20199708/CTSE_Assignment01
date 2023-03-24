@@ -16,11 +16,17 @@ class EduApplyModel {
       required this.phoneNo,
       required this.educationLevel,
       required this.contactEmail,
-      required this.postTitle,
+        required this.postTitle,
       this.userId});
 
-  EduApplyModel.addPost(this.createdAt, this.name, this.phoneNo,
-      this.educationLevel, this.postTitle, this.contactEmail, this.userId);
+  EduApplyModel.addPost(
+      this.createdAt,
+      this.name,
+      this.phoneNo,
+      this.educationLevel,
+      this.postTitle,
+      this.contactEmail,
+      this.userId);
 
   EduApplyModel.fromJson(Map<String, dynamic> json, String id) {
     this.id = id;

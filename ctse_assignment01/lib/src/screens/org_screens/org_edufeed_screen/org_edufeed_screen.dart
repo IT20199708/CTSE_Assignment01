@@ -31,18 +31,20 @@ class _OrgEduFeedState extends State<OrgEduFeed> {
         searchName = _searchController.text;
       });
     });
+
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: AppBar(
-          title: Text("Your Education Posts"),
+          title:Text("Your Education Posts"),
           centerTitle: true,
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: IconThemeData(color:Colors.white),
         ),
-        drawer: CustomDrawer(),
-        floatingActionButton: buildNavigateFAB(),
+        drawer:CustomDrawer(),
+        floatingActionButton:buildNavigateFAB(),
         body: SafeArea(
             child: Padding(
           padding: EdgeInsets.all(10),
@@ -55,7 +57,7 @@ class _OrgEduFeedState extends State<OrgEduFeed> {
                     hintText: "Post Title",
                     prefixIcon: Icon(Icons.search),
                     suffixIcon: IconButton(
-                        onPressed: () {
+                        onPressed: (){
                           setState(() {
                             searchName = '';
                           });
@@ -74,49 +76,48 @@ class _OrgEduFeedState extends State<OrgEduFeed> {
                       return Center(child: CircularProgressIndicator());
                     }
                     if (snapshot.hasData) {
-                      if (snapshot.data.length > 0) {
+
+                      if(snapshot.data.length > 0) {
                         return ListView.builder(
                             itemCount: snapshot.data.length,
                             itemBuilder: (context, index) {
                               EduPostModel post = snapshot.data[index];
-                              if (searchName.isEmpty) {
+                              if(searchName.isEmpty){
                                 return Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 8.0),
-                                    child: CustomCard(
-                                        context, snapshot.data[index]));
+                                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                                    child:
+                                    CustomCard(context, snapshot.data[index]));
                               }
-                              if (post.title
-                                  .toString()
-                                  .toLowerCase()
-                                  .contains(searchName)) {
+                              if(post.title.toString().toLowerCase().contains(searchName)){
                                 return Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 8.0),
-                                    child: CustomCard(
-                                        context, snapshot.data[index]));
+                                    padding: EdgeInsets.symmetric(vertical: 8.0),
+                                    child:
+                                    CustomCard(context, snapshot.data[index]));
                               }
                               return Container();
                             });
-                      } else {
+                      }else{
                         return Center(child: Text('No Data to Show'));
                       }
+
                     } else {
                       return Center(child: Text('No Data to Show'));
                     }
                   },
                 ),
               ),
+
             ],
           ),
         )));
   }
 
-  Widget buildNavigateFAB() => FloatingActionButton.extended(
+  
+  Widget buildNavigateFAB()=>FloatingActionButton.extended(
       icon: Icon(Icons.add),
       label: Text("Add"),
-      onPressed: () => Get.to(() => EduForm()));
-
+      onPressed: ()=>Get.to(()=>EduForm()));
+  
   Widget CustomCard(BuildContext context, EduPostModel model) {
     return Card(
       elevation: 10,
@@ -132,46 +133,44 @@ class _OrgEduFeedState extends State<OrgEduFeed> {
             children: [
               Row(
                 children: [
-                  CircleAvatar(
-                      backgroundImage: NetworkImage(model.userAvatar!)),
+                  CircleAvatar(backgroundImage: NetworkImage(model.userAvatar!)),
                   SizedBox(width: 16.w),
                   Flexible(
                     child: new Container(
-                      child: Column(children: [
-                        BigText(
-                          text: model.title!,
-                          color: Colors.grey[600],
-                          size: 15.sp,
-                        ),
-                      ]),
+                      child: Column(
+                          children:[ BigText(
+                            text: model.title!,
+                            color: Colors.grey[600],size: 15.sp,
+                          ),
+                          ]
+                      ),
                     ),
                   ),
                 ],
               ),
               SizedBox(height: 20.h),
               CachedNetworkImage(
-                imageUrl: model.thumbnailUrl != ''
-                    ? model.thumbnailUrl!
-                    : "https://firebasestorage.googleapis.com/v0/b/edushareflutter-1358a.appspot.com/o/EduShareThumbnail.jpg?alt=media&token=ad43151d-9618-4acb-a020-e5c4dbbad71f",
+                imageUrl:model.thumbnailUrl != '' ? model.thumbnailUrl! : "https://firebasestorage.googleapis.com/v0/b/edushareflutter-1358a.appspot.com/o/EduShareThumbnail.jpg?alt=media&token=ad43151d-9618-4acb-a020-e5c4dbbad71f",
                 imageBuilder: (context, imageProvider) => Container(
                     height: 200.h,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: imageProvider, fit: BoxFit.cover))),
-                placeholder: (context, url) =>
-                    Center(child: CircularProgressIndicator()),
+                            image:imageProvider,
+                            fit: BoxFit.cover
+                        )
+                    )
+                ),
+                placeholder: (context, url) => Center(child:CircularProgressIndicator()),
                 errorWidget: (context, url, error) => Icon(Icons.error),
               ),
+
               Divider(height: 1, color: Colors.black26),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   TextButton.icon(
-                      onPressed: () {
-                        Get.to(() => EduForm(
-                              id: model.id!,
-                              updateModel: model,
-                            ));
+                      onPressed: (){
+                        Get.to(()=>EduForm(id:model.id!,updateModel:model,));
                       },
                       icon: Icon(Icons.edit),
                       label: Text("Edit")),
@@ -194,49 +193,52 @@ class _OrgEduFeedState extends State<OrgEduFeed> {
   void _showBottomSheet(String id) {
     showModalBottomSheet(
         context: context,
+        
         builder: (context) {
-          return Container(
+          return  Container(
             padding: EdgeInsets.all(20),
-            height: 180.h,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(
-                  Icons.warning,
-                  color: Colors.red,
-                ),
-                Text('Are you sure to delete this post?'),
-                Row(
-                  children: [
-                    Expanded(
-                        child: OutlinedButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text("Cancel"))),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    Expanded(
-                        child: ElevatedButton(
+            height:180.h,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(
+                    Icons.warning,
+                    color: Colors.red,
+                  ),
+                  Text('Are you sure to delete this post?'),
+
+                  Row(
+                    children: [
+                      Expanded(
+                          child: OutlinedButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("Cancel"))),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      Expanded(
+                          child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.red),
-                            onPressed: () async {
-                              try {
+                              backgroundColor: Colors.red
+                            ),
+                              onPressed: () async {
+                              try{
                                 await EduDb.deletePost(id: id);
                                 Navigator.of(context).pop();
-                                CustomSnackBars.showSuccessSnackBar(
-                                    'Post deleted successfully');
-                              } on FirebaseException catch (e) {
+                                CustomSnackBars.showSuccessSnackBar('Post deleted successfully');
+                              }on FirebaseException catch(e){
                                 CustomSnackBars.showErrorSnackBar(e.message);
                               }
-                            },
-                            child: Text("Delete"))),
-                  ],
-                )
-              ],
-            ),
-          );
+
+                              }, child: Text("Delete"))),
+                    ],
+                  )
+                ],
+              ),
+            );
+
         });
   }
 }

@@ -147,8 +147,10 @@ class _SignInState extends State<SignIn> {
                         SizedBox(height: 30.h),
                         TextButton(
                           onPressed: () {
+
                            Get.off(()=>ForgetPassword());
                           },
+
                           child: Text("Forgot Password ?",
                               style: TextStyle(fontSize: 14.sp)),
                           style: ButtonStyle(
@@ -156,6 +158,7 @@ class _SignInState extends State<SignIn> {
                                 Size.fromHeight(40.h)),
                           ),
                         ),
+                        
                         SizedBox(height: 20.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
