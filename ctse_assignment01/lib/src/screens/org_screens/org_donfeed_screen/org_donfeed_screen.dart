@@ -154,6 +154,7 @@ class _OrgDonFeedState extends State<OrgDonFeed> {
                 imageUrl: model.thumbnailUrl != ''
                     ? model.thumbnailUrl!
                     : "https://firebasestorage.googleapis.com/v0/b/edushareflutter-1358a.appspot.com/o/EduShareThumbnail.jpg?alt=media&token=ad43151d-9618-4acb-a020-e5c4dbbad71f",
+
                 imageBuilder: (context, imageProvider) => Container(
                     height: 200.h,
                     decoration: BoxDecoration(
@@ -161,6 +162,7 @@ class _OrgDonFeedState extends State<OrgDonFeed> {
                             image: imageProvider, fit: BoxFit.cover))),
                 placeholder: (context, url) =>
                     Center(child: CircularProgressIndicator()),
+
                 errorWidget: (context, url, error) => Icon(Icons.error),
               ),
               SizedBox(height: 10.h),
