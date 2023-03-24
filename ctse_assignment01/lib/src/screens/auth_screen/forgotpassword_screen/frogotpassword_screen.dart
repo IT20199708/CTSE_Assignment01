@@ -83,7 +83,7 @@ class _ForgetPasswordState extends State<ForgetPassword> with TickerProviderStat
             alignment: FractionalOffset(_animation.value, 0),
           ),
           Padding(
-            
+
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: ListView(
               children: [
@@ -102,6 +102,7 @@ class _ForgetPasswordState extends State<ForgetPassword> with TickerProviderStat
                 const Text(
                   'Email Address',
                   style: TextStyle(
+
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontStyle: FontStyle.italic,
@@ -136,6 +137,7 @@ class _ForgetPasswordState extends State<ForgetPassword> with TickerProviderStat
                   child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 14),
                     child: Text(
+                      
                       'Reset Now',
                       style: TextStyle(
                         color: Colors.white,
