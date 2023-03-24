@@ -22,6 +22,4 @@ class OrgController extends GetxController {
    return filtered.snapshots().map(_edupostListFromSnapshot);
  }
 
-
-
 }

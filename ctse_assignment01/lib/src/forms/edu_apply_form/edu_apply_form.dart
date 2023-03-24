@@ -41,10 +41,10 @@ class _EduApplyFormState extends State<EduApplyForm> {
         var isAlreadyApplied = await EduApplyDb.chekAlreadyApply(id:FirebaseAuth.instance.currentUser!.uid);
         if(!isAlreadyApplied){
           await EduApplyDb.createPost(model:model);
-          CustomSnackBars.showSuccessSnackBar('Apply for post successfully');
+          CustomSnackBars.showSuccessSnackBar('Apply for post successfully!');
           Get.back();
         }else{
-          CustomSnackBars.showWarningSnackBar('You already applied for this post');
+          CustomSnackBars.showWarningSnackBar('You already applied for this post!');
           Get.back();
         }
 
