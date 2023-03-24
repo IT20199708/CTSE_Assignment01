@@ -59,7 +59,6 @@ class _EduApplyFormState extends State<EduApplyForm> {
 
   }
 
-
   @override
   void dispose() {
     super.dispose();
