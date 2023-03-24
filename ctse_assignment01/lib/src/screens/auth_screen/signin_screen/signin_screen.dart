@@ -1,6 +1,7 @@
 import 'package:ctse_assignment01/src/constants/colors/colors.dart';
 import 'package:ctse_assignment01/src/custom_widget/custom_button/custom_button.dart';
 import 'package:ctse_assignment01/src/custom_widget/custom_headline_text/custom_headline_text.dart';
+import 'package:ctse_assignment01/src/screens/auth_screen/forgotpassword_screen/frogotpassword_screen.dart';
 import 'package:ctse_assignment01/src/screens/auth_screen/signup_screen/user_role_select/user_role_select.dart';
 import 'package:ctse_assignment01/src/screens/org_screens/org_edufeed_screen/org_edufeed_screen.dart';
 import 'package:ctse_assignment01/src/screens/user_screens/home_screen/home_screen.dart';
@@ -145,7 +146,9 @@ class _SignInState extends State<SignIn> {
                             }),
                         SizedBox(height: 30.h),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                           Get.off(()=>ForgetPassword());
+                          },
                           child: Text("Forgot Password ?",
                               style: TextStyle(fontSize: 14.sp)),
                           style: ButtonStyle(
