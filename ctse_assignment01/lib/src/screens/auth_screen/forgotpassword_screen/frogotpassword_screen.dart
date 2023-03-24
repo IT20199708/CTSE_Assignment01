@@ -8,8 +8,6 @@ import 'package:flutter/material.dart';
 //import '../Services/global_variables.dart';
 
 class ForgetPassword extends StatefulWidget {
-
-
   @override
   State<ForgetPassword> createState() => _ForgetPasswordState();
 }
@@ -38,6 +36,7 @@ class _ForgetPasswordState extends State<ForgetPassword> with TickerProviderStat
 
         });
       })
+      
       ..addStatusListener((animationStatus) {
         if(animationStatus == AnimationStatus.completed)
         {
@@ -45,6 +44,7 @@ class _ForgetPasswordState extends State<ForgetPassword> with TickerProviderStat
           _animationController.forward();
         }
       });
+
     _animationController.forward();
     super.initState();
   }

@@ -23,7 +23,6 @@ class OnBoardController extends GetxController{
         bgColor: tOnBoardingPage1Color,
       ),
     ),
-
     OnBoardScreenLayout(
       model: OnBoardModel(
         image: tOnBoardingImage2,
@@ -33,7 +32,6 @@ class OnBoardController extends GetxController{
         bgColor: tOnBoardingPage2Color,
       ),
     ),
-
     OnBoardScreenLayout(
       model: OnBoardModel(
         image: tOnBoardingImage3,
@@ -43,15 +41,12 @@ class OnBoardController extends GetxController{
         bgColor: tOnBoardingPage3Color,
       ),
     ),
-
   ];
-
   skip()=>controller.jumpToPage(page: 2);
   animateToNextSlide(){
     int nextPage = controller.currentPage + 1 ;
     controller.animateToPage(page: nextPage);
   }
-
   onPageChangedCallBack(int activePageIndex){
     print(activePageIndex);
 
@@ -63,5 +58,4 @@ class OnBoardController extends GetxController{
     print(lastPage.value);
     curruntPage.value = activePageIndex;
   }
-  
 }
