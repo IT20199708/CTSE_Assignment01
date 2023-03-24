@@ -36,6 +36,7 @@ class _ForgetPasswordState extends State<ForgetPassword> with TickerProviderStat
 
         });
       })
+
       ..addStatusListener((animationStatus) {
         if(animationStatus == AnimationStatus.completed)
         {
@@ -43,6 +44,7 @@ class _ForgetPasswordState extends State<ForgetPassword> with TickerProviderStat
           _animationController.forward();
         }
       });
+
     _animationController.forward();
     super.initState();
   }
@@ -68,6 +70,7 @@ class _ForgetPasswordState extends State<ForgetPassword> with TickerProviderStat
       body: Stack(
         children: [
           CachedNetworkImage(
+
             imageUrl: 'https://firebasestorage.googleapis.com/v0/b/edushareflutter-1358a.appspot.com/o/user%20avatar.png?alt=media&token=98bc263d-1414-4c39-8bab-1eeb8013637f',
             placeholder: (context, url) => Image.asset(
               'assets/images/AuthScreen.png',
@@ -80,6 +83,7 @@ class _ForgetPasswordState extends State<ForgetPassword> with TickerProviderStat
             alignment: FractionalOffset(_animation.value, 0),
           ),
           Padding(
+            
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: ListView(
               children: [
