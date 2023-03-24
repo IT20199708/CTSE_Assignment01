@@ -56,7 +56,6 @@ class _DonApplyFormState extends State<DonApplyForm> {
 
   }
 
-
   @override
   void dispose() {
     super.dispose();
